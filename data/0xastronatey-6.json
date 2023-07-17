@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "0xastronatey",
+  "risk": "3",
+  "title": "Business Logic Flaw in Follow/Unfollow Functionality in LensV2Follow Contract",
+  "issueId": 6,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/6"
+}
