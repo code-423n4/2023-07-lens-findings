@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "DavidGiladi",
+  "risk": "2",
+  "title": "Calls _mint Instead of _safeMint",
+  "issueId": 17,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/17"
+}
