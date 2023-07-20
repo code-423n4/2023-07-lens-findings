@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "adeolu",
+  "risk": "2",
+  "title": "setBlockStatus() and setBlockStatusWithSig() of LensHub.sol dont have return types defined but have return statements in logic. ",
+  "issueId": 24,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/24"
+}
