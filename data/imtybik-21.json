@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "imtybik",
+  "risk": "3",
+  "title": "signature.signer can be a hackable contract that will return the right value for validation",
+  "issueId": 21,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/21"
+}
