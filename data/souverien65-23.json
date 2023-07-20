@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "souverien65",
+  "risk": "3",
+  "title": "Attacker was able to transfer token even with Guardian enabled",
+  "issueId": 23,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/23"
+}
