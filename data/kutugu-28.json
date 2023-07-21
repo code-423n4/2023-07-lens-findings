@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "kutugu",
+  "risk": "3",
+  "title": "_abiEncode implementation error resulting in a signature conflict",
+  "issueId": 28,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/28"
+}
