@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "XDZIBECX",
+  "risk": "2",
+  "title": "The setBlockStatusWithSig function has acks proper access controla It allows anyone, even an attacker, to impersonate another profile owner and change the block status of profiles.",
+  "issueId": 27,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/27"
+}
