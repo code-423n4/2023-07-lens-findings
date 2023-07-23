@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MSK",
+  "risk": "2",
+  "title": "```LensHandles._hasTokenGuardianEnabled(address)``` uses a dangerous strict equality i.e block.stamp",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/34"
+}
