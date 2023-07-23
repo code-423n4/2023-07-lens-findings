@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "auditsea",
+  "risk": "2",
+  "title": "MigrationLib - Profile migration does not include v1's dispatcher",
+  "issueId": 37,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/37"
+}
