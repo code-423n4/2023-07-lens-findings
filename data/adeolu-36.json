@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "adeolu",
+  "risk": "2",
+  "title": "possible DOS of batchMigrateProfiles() and  batchMigrateFollows() in MigrateLib.sol",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/36"
+}
