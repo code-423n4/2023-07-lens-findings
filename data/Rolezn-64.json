@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Rolezn",
+  "risk": "2",
+  "title": "Signature doesn't include chain id resulting in possible replay attack scenario",
+  "issueId": 64,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/64"
+}
