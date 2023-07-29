@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Emmanuel",
+  "risk": "2",
+  "title": "LegacyCollectNFT#initialize will fail because _initialized is set to true in the constructor",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/73"
+}
