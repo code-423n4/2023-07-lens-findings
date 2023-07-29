@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "3",
+  "title": "tryMigrate() has onlyHub modifier but it's called from LensV2Migration",
+  "issueId": 70,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/70"
+}
