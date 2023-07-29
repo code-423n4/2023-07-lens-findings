@@ -1,18 +1,20 @@
-   2 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/FollowNFT.sol
+ 
 
-Combine Initialization: Instead of using a separate _initialized variable, you can use the existence of _followedProfileId to determine if the contract has been initialized.
+   1 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/FollowNFT.sol
 
-Combine follow and _followMintingNewToken: Instead of having a separate internal function _followMintingNewToken, we can directly perform the necessary steps in the follow function.
+- Combine Initialization: Instead of using a separate _initialized variable, you can use the existence of _followedProfileId to determine if the contract has been initialized.
 
-Avoid Unnecessary Revert: In the follow function, we can combine the checks for the followTokenId being wrapped or unwrapped and directly revert if it doesn't exist.
+- Combine follow and _followMintingNewToken: Instead of having a separate internal function _followMintingNewToken, we can directly perform the necessary steps in the follow function.
 
-Simplify _followWithWrappedToken: we can simplify the logic in _followWithWrappedToken to directly update the follower data and remove the need for approval handling.
+- Avoid Unnecessary Revert: In the follow function, we can combine the checks for the followTokenId being wrapped or unwrapped and directly revert if it doesn't exist.
 
-Combine unwrap and _unfollow: Instead of having a separate unwrap function, we can directly call _unfollow and handle the unfollowing and token burning in a single step.
+- Simplify _followWithWrappedToken: we can simplify the logic in _followWithWrappedToken to directly update the follower data and remove the need for approval handling.
 
-Combine approveFollow and _approveFollow: The internal _approveFollow function doesn't add much value. we can directly perform the approval in the approveFollow function.
+- Combine unwrap and _unfollow: Instead of having a separate unwrap function, we can directly call _unfollow and handle the unfollowing and token burning in a single step.
 
-Remove tryMigrate: If the tryMigrate function is not needed in production, consider removing it to reduce contract size and complexity.
+- Combine approveFollow and _approveFollow: The internal _approveFollow function doesn't add much value. we can directly perform the approval in the approveFollow function.
+
+- Remove tryMigrate: If the tryMigrate function is not needed in production, consider removing it to reduce contract size and complexity.
 
 Here's an optimized version of the contract with these changes:
 
@@ -365,13 +367,13 @@ contract FollowNFT is HubRestricted, LensBaseERC721, ERC2981CollectionRoyalties,
 }
 
 
-3 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ActionLib.sol
+2 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ActionLib.sol
 
-Inline the _isActionEnabled Function: Instead of calling the private _isActionEnabled function, inline its logic directly into the act function. This saves the additional overhead of the function call.
+- Inline the _isActionEnabled Function: Instead of calling the private _isActionEnabled function, inline its logic directly into the act function. This saves the additional overhead of the function call.
 
-Combine Conditions: When checking if the action is enabled, combine conditions to reduce the number of operations.
+- Combine Conditions: When checking if the action is enabled, combine conditions to reduce the number of operations.
 
-Reduce Storage Reads: If possible, avoid unnecessary storage reads within the act function.
+- Reduce Storage Reads: If possible, avoid unnecessary storage reads within the act function.
 
 
 Here's an optimized version of the act function with some of the suggested improvements:
@@ -430,17 +432,17 @@ function act(
 }
 
 
-4 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/FollowLib.sol
+3 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/FollowLib.sol
 
-Combine the two if conditions into two separate require statements for array length checks in the follow function. This reduces the number of require statements.
+- Combine the two if conditions into two separate require statements for array length checks in the follow function. This reduces the number of require statements.
 
-Replace the while loop with a for loop in the follow and unfollow functions.
+- Replace the while loop with a for loop in the follow and unfollow functions.
 
-Remove the unnecessary unchecked block in the loops.
+- Remove the unnecessary unchecked block in the loops.
 
-Remove the unnecessary + operator in the for loop increment.
+- Remove the unnecessary + operator in the for loop increment.
 
-Simplifie the _follow function by combining the two event emission statements into a single emit statement.
+- Simplifiy the _follow function by combining the two event emission statements into a single emit statement.
 
 Avoide emitting an empty string for the processFollowModuleReturnData when no follow module is used.
 
@@ -565,17 +567,17 @@ library FollowLib {
 }
 
 
-5 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/GovernanceLib.sol
+4 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/GovernanceLib.sol
 
-Add view functions to read data without modifying state.
+- Add view functions to read data without modifying state.
 
-Remove redundant event emissions in the internal _setState function.
+- Remove redundant event emissions in the internal _setState function.
 
-Use require instead of revert for better gas efficiency.
+- Use require instead of revert for better gas efficiency.
 
-Consolidate whitelist update functions to batch multiple updates into a single call.
+- Consolidate whitelist update functions to batch multiple updates into a single call.
 
-Reduce redundant storage variable lookups.
+- Reduce redundant storage variable lookups.
 
 Here's an optimized version of the GovernanceLib contract :
 // SPDX-License-Identifier: MIT
@@ -700,13 +702,13 @@ library GovernanceLib {
 }
 
 
-6 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/LegacyCollectLib.sol
+5 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/LegacyCollectLib.sol
 
-Move the storage read of _collectedPublication before the validation and collect module checks to avoid unnecessary read operations.
+- Move the storage read of _collectedPublication before the validation and collect module checks to avoid unnecessary read operations.
 
-Replace require with if statement to perform the collectModule check, which slightly reduces gas usage for revert operations.
+- Replace require with if statement to perform the collectModule check, which slightly reduces gas usage for revert operations.
 
-Remove the explicit return of tokenId in the collect function as it is already assigned within the function, and the caller can retrieve it from the state.
+- Remove the explicit return of tokenId in the collect function as it is already assigned within the function, and the caller can retrieve it from the state.
 
 
 Here's the optimized version of the LegacyCollectLib contract:
@@ -847,23 +849,23 @@ library LegacyCollectLib {
    }
 }
 
-7 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/MetaTxLib.sol
+6 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/MetaTxLib.sol
 
-Remove Constant Function Calls: replace the constant function calls with their actual constant values to avoid unnecessary function calls and gas overhead. For example, I removed the function calls to EIP712_DOMAIN_VERSION_HASH and LENS_HUB_ADDRESS and replaced them with their respective constant values.
+- Remove Constant Function Calls: replace the constant function calls with their actual constant values to avoid unnecessary function calls and gas overhead. For example, I removed the function calls to EIP712_DOMAIN_VERSION_HASH and LENS_HUB_ADDRESS and replaced them with their respective constant values.
 
-Minimize String Operations:  did not change the string operations in the contract, as they are already minimal.
+- Minimize String Operations:  did not change the string operations in the contract, as they are already minimal.
 
-Reuse Calculations:  reuse calculations to avoid redundant operations. For example, the contentURIHash, referenceModuleDataHash, actionModulesInitDataHash, and referenceModuleInitDataHash are now calculated only once and reused in the respective functions.
+- Reuse Calculations:  reuse calculations to avoid redundant operations. For example, the contentURIHash, referenceModuleDataHash, actionModulesInitDataHash, and referenceModuleInitDataHash are now calculated only once and reused in the respective functions.
 
-Remove Unused Function: In the provided code snippet, there are several other validation functions for different operations, but they were not included in the optimization since the focus was on improving the structure rather than the specific functions.
+- Remove Unused Function: In the provided code snippet, there are several other validation functions for different operations, but they were not included in the optimization since the focus was on improving the structure rather than the specific functions.
 
-Simplifiy the calculateDomainSeparator Function: In the original code, the function checked if the contract's address was equal to LENS_HUB_ADDRESS to determine the domain separator. simplifiy it by using a ternary operator to return the appropriate domain separator directly.
+- Simplifiy the calculateDomainSeparator Function: In the original code, the function checked if the contract's address was equal to LENS_HUB_ADDRESS to determine the domain separator. simplifiy it by using a ternary operator to return the appropriate domain separator directly.
 
-Remove Unused Struct: The struct ReferenceParamsForAbiEncode and the corresponding _abiEncode function to be remove, as they were not used in the contract.
+- Remove Unused Struct: The struct ReferenceParamsForAbiEncode and the corresponding _abiEncode function to be remove, as they were not used in the contract.
 
-Inline Variables:  remove some intermediate variables to save gas. For example, in the _encodePost function, directly use the result of keccak256(bytes(postParams.contentURI)) instead of assigning it to contentURIHash.
+- Inline Variables:  remove some intermediate variables to save gas. For example, in the _encodePost function, directly use the result of keccak256(bytes(postParams.contentURI)) instead of assigning it to contentURIHash.
 
-Reduce Array Iteration: In the _hashActionModulesInitDatas function,  use a for loop instead of a while loop to hash the actionModulesInitDatas array, which can slightly reduce gas costs.
+- Reduce Array Iteration: In the _hashActionModulesInitDatas function,  use a for loop instead of a while loop to hash the actionModulesInitDatas array, which can slightly reduce gas costs.
 
 Here's the optimized version of the MetaTxLib contract:
 
@@ -1016,17 +1018,17 @@ library MetaTxLib {
 
 
 
-8 . TARGET: https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/MigrationLib.sol
+7. TARGET: https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/MigrationLib.sol
 
-Batch Operations: Instead of using a while loop, we can use a for loop for batch migration. Additionally, we can merge the three arrays in batchMigrateFollows into a single array of a custom struct to simplify the code.
+- Batch Operations: Instead of using a while loop, we can use a for loop for batch migration. Additionally, we can merge the three arrays in batchMigrateFollows into a single array of a custom struct to simplify the code.
 
-Combine Checks: We can combine the checks for profile existence and migration status into a single check in _migrateProfile, which reduces redundant storage reads.
+- Combine Checks: We can combine the checks for profile existence and migration status into a single check in _migrateProfile, which reduces redundant storage reads.
 
-Use Memory Variables: In _migrateProfile, we can use a memory variable for handle instead of reading it from storage twice.
+- Use Memory Variables: In _migrateProfile, we can use a memory variable for handle instead of reading it from storage twice.
 
-Reduce Emit Operations: We can avoid emitting the ProfileMigrated event if the profile has already been migrated.
+- Reduce Emit Operations: We can avoid emitting the ProfileMigrated event if the profile has already been migrated.
 
-Avoid Multiple Storage Access: In batchMigrateFollowModules, instead of accessing the same profile multiple times, we can store it in a memory variable.
+- Avoid Multiple Storage Access: In batchMigrateFollowModules, instead of accessing the same profile multiple times, we can store it in a memory variable.
 
 Here's the optimized version OF MigrationLib Contract:
 
@@ -1176,19 +1178,19 @@ library MigrationLib {
 }
 
 
-9 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ProfileLib.sol
+8 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ProfileLib.sol
 
-Combine createProfile and setProfileImageURI functions: Instead of having two separate functions for creating a profile and setting the image URI, you can combine them to reduce storage access and gas costs.
+- Combine createProfile and setProfileImageURI functions: Instead of having two separate functions for creating a profile and setting the image URI, you can combine them to reduce storage access and gas costs.
 
-Avoid duplicate storage reads: Cache data in local variables to avoid redundant storage reads.
+- Avoid duplicate storage reads: Cache data in local variables to avoid redundant storage reads.
 
-Batch storage writes: When making multiple changes to storage, consider batching the writes to reduce gas costs.
+- Batch storage writes: When making multiple changes to storage, consider batching the writes to reduce gas costs.
 
-Use memory for temporary data: Use the memory keyword for function arguments and local variables when possible to reduce storage operations.
+- Use memory for temporary data: Use the memory keyword for function arguments and local variables when possible to reduce storage operations.
 
-Limit array iterations: Avoid unnecessary loops, especially if they involve large arrays.
+- Limit array iterations: Avoid unnecessary loops, especially if they involve large arrays.
 
-Optimize string operations: If possible, use fixed-size byte arrays instead of strings to reduce gas costs.
+- Optimize string operations: If possible, use fixed-size byte arrays instead of strings to reduce gas costs.
 
 Here's an optimized version of the ProfileLib contract :
 
@@ -1257,17 +1259,17 @@ library ProfileLib {
 }
 
 
-10 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/PublicationLib.sol
+9 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/PublicationLib.sol
 
-Inline small functions to reduce the overhead of function calls.
+- Inline small functions to reduce the overhead of function calls.
 
-Change certain functions to view when they only read data from storage.
+- Change certain functions to view when they only read data from storage.
 
-Use bytes32 instead of string for certain parameters to save on gas costs.
+- Use bytes32 instead of string for certain parameters to save on gas costs.
 
-Remove redundant storage reads and combined assignments to minimize storage operations.
+- Remove redundant storage reads and combined assignments to minimize storage operations.
 
-Simplifiy conditionals and loops to reduce complexity and gas usage.
+- Simplifiy conditionals and loops to reduce complexity and gas usage.
 
 Here's an optimized version of the PublicationLib Contract :
 
@@ -1474,19 +1476,19 @@ library PublicationLib {
    // Other  functions...
 }
 
-11 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/StorageLib.sol
+10 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/StorageLib.sol
 
-Combine Storage Slots: Combine related data into a single storage slot to reduce storage access and packing overhead.
+- Combine Storage Slots: Combine related data into a single storage slot to reduce storage access and packing overhead.
 
-Batch Storage Updates: Combine multiple state updates into a single transaction to save on gas costs.
+- Batch Storage Updates: Combine multiple state updates into a single transaction to save on gas costs.
 
-Avoid Unnecessary Storage Reads: Minimize unnecessary storage reads by caching data when possible.
+- Avoid Unnecessary Storage Reads: Minimize unnecessary storage reads by caching data when possible.
 
-Simplify Data Structures: Use more efficient data structures and avoid deep nesting.
+- Simplify Data Structures: Use more efficient data structures and avoid deep nesting.
 
-Use View and Pure Functions: Mark non-state modifying functions as view or pure.
+- Use View and Pure Functions: Mark non-state modifying functions as view or pure.
 
-Optimize Assembly: Carefully optimize any assembly code to reduce gas consumption.
+
 
 
 Here's an optimized version of the StorageLib Contract :
@@ -1567,17 +1569,17 @@ library StorageLib {
 }
 
 
-12 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ValidationLib.sol
+11 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/ValidationLib.sol
 
-Use the using directive for library storage mappings to avoid repetitive lookups of these mappings in functions.
+- Use the using directive for library storage mappings to avoid repetitive lookups of these mappings in functions.
 
-Combine multiple conditions in some functions to reduce the number of instructions executed.
+- Combine multiple conditions in some functions to reduce the number of instructions executed.
 
-Change the while loop in validateReferrersAndGetReferrersPubTypes to a for loop to make the loop more concise and gas-efficient.
+- Change the while loop in validateReferrersAndGetReferrersPubTypes to a for loop to make the loop more concise and gas-efficient.
 
-Simplifiy some validation conditions and checks where possible.
+- Simplifiy some validation conditions and checks where possible.
 
-Reuse the _targetedPub variable in _validateReferrerAsMirrorOrCommentOrQuote instead of doing a storage lookup twice.
+- Reuse the _targetedPub variable in _validateReferrerAsMirrorOrCommentOrQuote instead of doing a storage lookup twice.
 
 Here is an Optimized version of the ValidationLib contract :
 
@@ -1759,15 +1761,15 @@ library ValidationLib {
 }
 
 
-13 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/constants/Events.sol
+12 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/libraries/constants/Events.sol
 
-Replace string data type with bytes32 data type for imageURIs. This reduces gas consumption for storing and emitting image URIs.
+- Replace string data type with bytes32 data type for imageURIs. This reduces gas consumption for storing and emitting image URIs.
 
-Remove unnecessary indexed parameters to reduce gas costs for event indexing.
+- Remove unnecessary indexed parameters to reduce gas costs for event indexing.
 
-Replace string data type with bytes32 for event parameters wherever possible to reduce gas costs.
+- Replace string data type with bytes32 for event parameters wherever possible to reduce gas costs.
 
-Update the event signatures and event parameter types to reflect the changes.
+- Update the event signatures and event parameter types to reflect the changes.
 
 Here's the optimized code  For Events Contrat : // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0;
@@ -1940,19 +1942,15 @@ library Events {
 }
 
 
-14 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/base/LensBaseERC721.sol
+13 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/base/LensBaseERC721.sol
 
-Use an immutable modifier for constant data (_name and _symbol).
+- Use an immutable modifier for constant data (_name and _symbol).
 
-Replace some external functions with view functions.
 
-Move common checks to a modifier (_onlyValidToken).
+- Move common checks to a modifier (_onlyValidToken).
 
-Reduce redundant storage writes in the _transfer and _mint functions.
+- Reduce redundant storage writes in the _transfer and _mint functions.
 
-Remove unnecessary revert messages.
-
-Remove unused deprecated mappings.
 
 Minimize the usage of string operations.
 
@@ -2134,13 +2132,13 @@ abstract contract LensBaseERC721 is ERC165, ILensERC721 {
 
    
 
-15 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/base/LensProfiles.sol
+14 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/base/LensProfiles.sol
 
-Add the correct contract name in the modifier onlyProfileOwner.
+- Add the correct contract name in the modifier onlyProfileOwner.
 
-Simplifiy the onlyEOA modifier using tx.origin instead of msg.sender, which is a more gas-efficient way to check for externally-owned accounts.
+- Simplifiy the onlyEOA modifier using tx.origin instead of msg.sender, which is a more gas-efficient way to check for externally-owned accounts.
 
-Remove the redundant token existence check in the tokenURI function, as it's already performed in the burn function where it is needed.
+- Remove the redundant token existence check in the tokenURI function, as it's already performed in the burn function where it is needed.
 
 Here's the optimized Version of LensProfiles contract :
 
@@ -2208,19 +2206,19 @@ abstract contract LensProfiles {
 
 
 
-16 . TARGET :https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/LegacyCollectNFT.sol
+15 . TARGET :https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/LegacyCollectNFT.sol
 
 
 
-Move the initialization of profileId and pubId to the constructor, avoiding the need for the initialize function.
+- Move the initialization of profileId and pubId to the constructor, avoiding the need for the initialize function.
 
-Remove the _initialized variable, as it is no longer needed due to the constructor setting the profileId and pubId.
+- Remove the _initialized variable, as it is no longer needed due to the constructor setting the profileId and pubId.
 
-Add the onlyHub modifier to the mint function to restrict it to only be called by the HUB address.
+- Add the onlyHub modifier to the mint function to restrict it to only be called by the HUB address.
 
-Replace the string concatenation in the name() function with abi.encodePacked, which is slightly more gas-efficient for string operations.
+- Replace the string concatenation in the name() function with abi.encodePacked, which is slightly more gas-efficient for string operations.
 
-Remove the _getRoyaltiesInBasisPointsSlot function, as it's no longer needed. The value is directly stored in the ERC2981CollectionRoyalties contract.
+- Remove the _getRoyaltiesInBasisPointsSlot function, as it's no longer needed. The value is directly stored in the ERC2981CollectionRoyalties contract.
 
 Here's an optimized version of the LegacyCollectNFT contract :
 
@@ -2327,21 +2325,21 @@ contract LegacyCollectNFT is LensBaseERC721, ERC2981CollectionRoyalties, ICollec
 }
 
 
-17 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/LensV2UpgradeContract.sol
+16 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/LensV2UpgradeContract.sol
 
-Replace while loops with for loops: In the _batchUnwhitelistOldFollowModules(), _batchUnwhitelistOldReferenceModules(), _batchUnwhitelistOldCollectModules(), _batchWhitelistNewFollowModules(), _batchWhitelistNewReferenceModules(), and _batchWhitelistNewActionModules() functions, the while loops were replaced with for loops. for loops are generally more gas-efficient than while loops.
+- Replace while loops with for loops: In the _batchUnwhitelistOldFollowModules(), _batchUnwhitelistOldReferenceModules(), _batchUnwhitelistOldCollectModules(), _batchWhitelistNewFollowModules(), _batchWhitelistNewReferenceModules(), and _batchWhitelistNewActionModules() functions, the while loops were replaced with for loops. for loops are generally more gas-efficient than while loops.
 
-Use for loop counters: Declared the loop counters inside the for loops, which is more idiomatic and slightly more gas-efficient.
+- Use for loop counters: Declared the loop counters inside the for loops, which is more idiomatic and slightly more gas-efficient.
 
-Remove redundant loop length calculations: Stored the length of arrays in variables before looping to avoid redundant calculations inside the loops.
+- Remove redundant loop length calculations: Stored the length of arrays in variables before looping to avoid redundant calculations inside the loops.
 
-Use memory modifier for array arguments: Added the memory modifier to function arguments for arrays that are only used within functions. This saves gas costs for unnecessary storage operations.
+- Use memory modifier for array arguments: Added the memory modifier to function arguments for arrays that are only used within functions. This saves gas costs for unnecessary storage operations.
 
-Change loop index increment: Changed the loop index increment method from unchecked { ++i; } to i++;. Both methods are generally gas-efficient, but using unchecked can be avoided.
+- Change loop index increment: Changed the loop index increment method from unchecked { ++i; } to i++;. Both methods are generally gas-efficient, but using unchecked can be avoided.
 
-Rename loop counters for readability: Renamed loop counters for better code readability.
+- Rename loop counters for readability: Renamed loop counters for better code readability.
 
-Combine similar functions: Where applicable, combined similar functions (_unwhitelistOldFollowModules(), _unwhitelistOldReferenceModules(), _unwhitelistOldCollectModules()) into more generic batch functions (_batchUnwhitelistOldFollowModules(), _batchUnwhitelistOldReferenceModules(), _batchUnwhitelistOldCollectModules()).
+- Combine similar functions:  combined similar functions (_unwhitelistOldFollowModules(), _unwhitelistOldReferenceModules(), _unwhitelistOldCollectModules()) into more generic batch functions (_batchUnwhitelistOldFollowModules(), _batchUnwhitelistOldReferenceModules(), _batchUnwhitelistOldCollectModules()).
 
 
 Here's the optimized Version of LensV2Upgrade Contract :
@@ -2451,15 +2449,15 @@ contract LensV2UpgradeContract is ImmutableOwnable {
 }
 
 
-18 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/ModuleGlobals.sol
+17 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/misc/ModuleGlobals.sol
 
-Change uint16 to uint8: The _treasuryFee variable was changed from uint16 to uint8 since the treasury fee is represented as a basis point (BPS) between 0 and 10000. Using uint8 reduces the storage cost while still supporting the required range.
+- Change uint16 to uint8: The _treasuryFee variable was changed from uint16 to uint8 since the treasury fee is represented as a basis point (BPS) between 0 and 10000. Using uint8 reduces the storage cost while still supporting the required range.
 
-Make Variables Immutable: The governance, treasury, and treasuryFee variables were marked as immutable. Marking these variables as immutable allows the Solidity compiler to optimize the contract by avoiding unnecessary storage writes.
+- Make Variables Immutable: The governance, treasury, and treasuryFee variables were marked as immutable. Marking these variables as immutable allows the Solidity compiler to optimize the contract by avoiding unnecessary storage writes.
 
-Remove Unnecessary onlyGov Modifier: The onlyGov modifier was removed from the getter functions (getGovernance, getTreasury, and getTreasuryFee) since these functions do not modify the state of the contract and do not require governance access.
+- Remove Unnecessary onlyGov Modifier: The onlyGov modifier was removed from the getter functions (getGovernance, getTreasury, and getTreasuryFee) since these functions do not modify the state of the contract and do not require governance access.
 
-Simplifiy Constructor: The constructor now uses require statements to validate the input parameters and check for invalid values before assigning them to the immutable variables. This helps in optimizing the contract by reducing unnecessary computations during deployment.
+- Simplifiy Constructor: The constructor now uses require statements to validate the input parameters and check for invalid values before assigning them to the immutable variables. This helps in optimizing the contract by reducing unnecessary computations during deployment.
 
 Here is an optimized version of  ModuleGlobals contract :
 
@@ -2510,19 +2508,19 @@ contract ModuleGlobals is IModuleGlobals {
 }
 
 
-19 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/namespaces/LensHandles.sol
+18 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/namespaces/LensHandles.sol
 
-String Concatenation: The contract uses the string.concat function to create the symbol and name for the ERC721 token. String concatenation in Solidity can be costly in terms of gas. Instead, we can define the name and symbol as constants during contract deployment to avoid string concatenation at runtime.
+- String Concatenation: The contract uses the string.concat function to create the symbol and name for the ERC721 token. String concatenation in Solidity can be costly in terms of gas. Instead, we can define the name and symbol as constants during contract deployment to avoid string concatenation at runtime.
 
-Minting Optimization: During handle minting, the _validateLocalName function is called twice, once in mintHandle and once in _mintHandle. we can remove the redundant validation by performing it only once in the mintHandle function.
+- Minting Optimization: During handle minting, the _validateLocalName function is called twice, once in mintHandle and once in _mintHandle. we can remove the redundant validation by performing it only once in the mintHandle function.
 
-Loop Unrolling: In the _validateLocalName and _validateLocalNameMigration functions, the loop could be unrolled to avoid unnecessary overhead.
+- Loop Unrolling: In the _validateLocalName and _validateLocalNameMigration functions, the loop could be unrolled to avoid unnecessary overhead.
 
-Handle Length Calculation: The calculation of localNameLength + SEPARATOR_LENGTH + NAMESPACE_LENGTH is done in multiple places. You can compute this value once and store it in a variable to save gas during runtime.
+- Handle Length Calculation: The calculation of localNameLength + SEPARATOR_LENGTH + NAMESPACE_LENGTH is done in multiple places. You can compute this value once and store it in a variable to save gas during runtime.
 
-String Length Check: In the getLocalName function, we check for the existence of a local name by checking the length of the string. However, Solidity strings are always initialized with a length greater than zero, even if empty. Therefore, we can use the bytes function to check if the local name is empty.
+- String Length Check: In the getLocalName function, we check for the existence of a local name by checking the length of the string. However, Solidity strings are always initialized with a length greater than zero, even if empty. Therefore, we can use the bytes function to check if the local name is empty.
 
-Avoid Duplicated Reverts: In the _beforeTokenTransfer function, you have a revert for the guardian enabled check. Instead of calling the modifier _hasTokenGuardianEnabled, we can directly check the condition in the _beforeTokenTransfer function to reduce redundant revert calls.
+- Avoid Duplicated Reverts: In the _beforeTokenTransfer function, you have a revert for the guardian enabled check. Instead of calling the modifier _hasTokenGuardianEnabled, we can directly check the condition in the _beforeTokenTransfer function to reduce redundant revert calls.
 
 Here is an optimized version of LensHandles contract :
 
@@ -2681,17 +2679,17 @@ contract LensHandles is ERC721, ImmutableOwnable, ILensHandles {
 
 20 . TARGET : https://github.com/code-423n4/2023-07-lens/blob/main/contracts/namespaces/TokenHandleRegistry.sol
 
-Remove the unnecessary modifiers, such as onlyHandleOwner and onlyTokenOwner, which checked for token ownership. As the contract is designed to be called only by the LensHub contract (as indicated in the comments), these modifiers are not required.
+- Remove the unnecessary modifiers,  onlyHandleOwner and onlyTokenOwner, which checked for token ownership. As the contract is designed to be called only by the LensHub contract (as indicated in the comments), these modifiers are not required.
 
-Simplifiy  the unlink function to avoid multiple external contract calls when checking for existence. Instead, we check for existence using the exists functions from the interfaces.
+- Simplifiy  the unlink function to avoid multiple external contract calls when checking for existence. Instead, we check for existence using the exists functions from the interfaces.
 
-Remove redundant events emitted during the unlinking process.
+- Remove redundant events emitted during the unlinking process.
 
-Simplifiy the resolve and getDefaultHandle functions to reduce external contract calls by storing the results of external calls in local variables.
+- Simplifiy the resolve and getDefaultHandle functions to reduce external contract calls by storing the results of external calls in local variables.
 
-Replace the explicit error message strings in the revert statements with the corresponding error codes from the RegistryErrors contract. This minimizes the gas cost of revert operations.
+- Replace the explicit error message strings in the revert statements with the corresponding error codes from the RegistryErrors contract. This minimizes the gas cost of revert operations.
 
-Remove the unnecessary mappings to further save storage gas costs.
+- Remove the unnecessary mappings to further save storage gas costs.
 
 Here is an optimized version of okenHandleRegistry Contract :
 // SPDX-License-Identifier: MIT
