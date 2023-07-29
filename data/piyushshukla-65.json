@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "piyushshukla",
+  "risk": "3",
+  "title": "Lack of Preventing Multiple Follows to the Same Profile ID",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/65"
+}
