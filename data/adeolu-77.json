@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "adeolu",
+  "risk": "2",
+  "title": "setBlockStatus() can revert due to gas limit DOS if u want to block too many handles at once",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/77"
+}
