@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Limbooo",
+  "risk": "3",
+  "title": "Improper Handling of Approvals with TOKEN GUARDIAN can lead to unauthorized token transfers",
+  "issueId": 90,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/90"
+}
