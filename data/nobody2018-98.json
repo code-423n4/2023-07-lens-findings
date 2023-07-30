@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "nobody2018",
+  "risk": "2",
+  "title": "SeaDropMintPublicationAction._distributeFees may miscalculate the fee allocated to treasury in some cases",
+  "issueId": 98,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/98"
+}
