@@ -43,3 +43,20 @@ By manipulating ```Block.timestamp``` attackers can break functionality of smart
 Manual Detection
 #### Recommended Mitigation Steps
 Avoid Relying on ```block.timestamp```
+## [L-03] State variables That Are Used But Never Initialized 
+#### Description
+Uninitialized state variables.
+#### Vulnerable Code Snippet
+```mapping(uint256 id => address actionModule) internal _actionModules``` is never initialized but used in ```LensHub.getActionModuleById``` as below
+``` solidity
+function getActionModuleById(uint256 id) external view override returns (address) {
+        return _actionModules[id];
+    }
+```
+#### Vulnerable Code Link
+[LensHubStorage.sol#L61](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/base/LensHubStorage.sol#L61)
+[LensHub.sol#L567](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/LensHub.sol#L567)
+#### Tools Used
+Static Analyzer
+#### Recommended Mitigation Steps
+Initialize all the variables. If a variable is meant to be initialized to zero, explicitly set it to zero to improve code readability.
