@@ -39,6 +39,8 @@ By manipulating ```Block.timestamp``` attackers can break functionality of smart
 #### Vulnerable Code Link
 [LensProfiles.sol#L142-L147](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/base/LensProfiles.sol#L142-L147)
 [LensHandles.sol#L149](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L149)
+[LensHandles.sol#L253](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L253)
+[LensHandles.sol#L266](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L266)
 #### Tools Used 
 Manual Detection
 #### Recommended Mitigation Steps
