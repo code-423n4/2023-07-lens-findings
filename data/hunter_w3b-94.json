@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "hunter_w3b",
+  "risk": "3",
+  "title": "Missing owner check on from when transferring tokens",
+  "issueId": 94,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/94"
+}
