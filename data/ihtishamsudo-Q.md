@@ -60,3 +60,5 @@ function getActionModuleById(uint256 id) external view override returns (address
 Static Analyzer
 #### Recommended Mitigation Steps
 Initialize all the variables. If a variable is meant to be initialized to zero, explicitly set it to zero to improve code readability.
+## [NC-01] Variables are not mixedCase
+[mapping(address => mapping(uint256 => uint256)) private __DEPRECATED__ownedTokens](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/base/LensBaseERC721.sol#L54) is not mixedCase 
