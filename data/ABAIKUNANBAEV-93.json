@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "2",
+  "title": "removeFollower() function decreases the functionality provided by the approve() function due to centralization risk",
+  "issueId": 93,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/93"
+}
