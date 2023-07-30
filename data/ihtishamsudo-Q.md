@@ -22,3 +22,24 @@ IFollowModule(newFeeFollowModule).initializeFollowModule({
 Manual Review / Solidity Visual Developer 
 #### Recommended Mitigation Step 
 Functions having external calls in loop can batch multiple profileIds per transaction, estimating gas usage before making external calls, and thoroughly testing under various scenarios.
+## [L-02] Avoid Using Block.timestamp 
+#### Description
+Using ```Block.timestamp``` is not a good practice and must be avoided because it can easily be manipulated by attackers
+#### Impact 
+By manipulating ```Block.timestamp``` attackers can break functionality of smart contract.
+#### Vulnerable Code Snippet 
+``` solidity 
+    function _hasTokenGuardianEnabled(address wallet) internal view returns (bool) {
+        return
+            !wallet.isContract() &&
+            (StorageLib.tokenGuardianDisablingTimestamp()[wallet] == 0 ||
+                block.timestamp < StorageLib.tokenGuardianDisablingTimestamp()[wallet]);
+    }
+```
+#### Vulnerable Code Link
+[LensProfiles.sol#L142-L147](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/base/LensProfiles.sol#L142-L147)
+[LensHandles.sol#L149](https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L149)
+#### Tools Used 
+Manual Detection
+#### Recommended Mitigation Steps
+Avoid Relying on ```block.timestamp```
