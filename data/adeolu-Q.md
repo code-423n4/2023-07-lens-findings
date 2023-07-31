@@ -33,3 +33,17 @@ VS CODE
 
 **RECOMMENDED MITIGATION**
 Since ProfileLib.setBlockStatus() dont return anything, remove the `return` keyword in their logic. 
+
+# 2) no need to add timestamp field to events emitted as events have the timestamp field by default
+
+
+**Lines of code**
+https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L135
+https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/LensHandles.sol#L122
+https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/namespaces/constants/Events.sol
+https://github.com/code-423n4/2023-07-lens/blob/cdef6ebc6266c44c7068bc1c4c04e12bf0d67ead/contracts/libraries/constants/Events.sol
+
+
+
+**RECOMMENDED MITIGATION**
+remove timestamp field
