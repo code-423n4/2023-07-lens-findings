@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "`transactionExecutor` is incorrectly set to relayer instead of signer in `setFollowModuleWithSig()`",
+  "issueId": 138,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/138"
+}
