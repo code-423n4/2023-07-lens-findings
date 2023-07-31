@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "Attackers might be able to avoid calling reference modules when creating publications",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/147"
+}
