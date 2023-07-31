@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "juancito",
+  "risk": "2",
+  "title": "Lens Handles from v1 can be minted by other users on v2 before they are migrated to their corresponding owner",
+  "issueId": 105,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/105"
+}
