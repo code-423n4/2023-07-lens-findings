@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "andy",
+  "risk": "3",
+  "title": "`FollowNFT` storage collision",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/164"
+}
