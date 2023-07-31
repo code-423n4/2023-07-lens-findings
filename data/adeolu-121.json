@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "adeolu",
+  "risk": "2",
+  "title": "no __gap variable in contracts marked upgradeable as seen in Lens V2 Social Layer Architecture diagram",
+  "issueId": 121,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/121"
+}
