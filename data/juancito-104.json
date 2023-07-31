@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "juancito",
+  "risk": "2",
+  "title": "Users can make any user follow them via `FollowNFT::tryMigrate()` without their consent",
+  "issueId": 104,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/104"
+}
