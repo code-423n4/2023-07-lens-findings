@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "Action and references modules can still be executed after being removed from whitelist",
+  "issueId": 150,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/150"
+}
