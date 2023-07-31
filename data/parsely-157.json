@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "parsely",
+  "risk": "3",
+  "title": "Due to revert found during testing it would be wise to implement a rollback and re-whitelist should it be needed ",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/157"
+}
