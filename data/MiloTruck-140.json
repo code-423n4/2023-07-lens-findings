@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "`_hashActionModulesInitDatas()` doesn't encode `bytes` array according to EIP-712",
+  "issueId": 140,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/140"
+}
