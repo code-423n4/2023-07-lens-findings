@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "erebus",
+  "risk": "2",
+  "title": "Using LensBaseERC721::_safeTransfer may lead to tokens being locked forever ",
+  "issueId": 149,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/149"
+}
