@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "EIP-712 typehash is incorrect for several functions in `MetaTxLib`",
+  "issueId": 141,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/141"
+}
