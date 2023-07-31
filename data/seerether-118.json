@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "seerether",
+  "risk": "3",
+  "title": " The owner can call _upgrade directly, skipping executeLensV2Upgrade.",
+  "issueId": 118,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/118"
+}
