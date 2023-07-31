@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "nadin",
+  "risk": "3",
+  "title": "In `LensBaseERC721.sol#_transfer()` Lack of check `from==to`",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/131"
+}
