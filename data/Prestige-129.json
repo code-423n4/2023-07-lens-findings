@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Prestige",
+  "risk": "2",
+  "title": " Incorrect Incrementation of Follower Count in _replaceFollower Function",
+  "issueId": 129,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/129"
+}
