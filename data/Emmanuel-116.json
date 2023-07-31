@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "The user who is about to be followed will frontrun a follower with a `LensHub#setFollowModule` call to steal from them.",
+  "issueId": 116,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/116"
+}
