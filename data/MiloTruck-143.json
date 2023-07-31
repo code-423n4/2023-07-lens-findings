@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "Whitelisted profile creators could accidentally break migration for V1 profiles",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/143"
+}
