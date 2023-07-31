@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of the limitation how many profileIds/followerProfileIds can be assigned into the `profileIds`/`followerProfileIds` array parameter at once, the transaction will be reverted due to reaching the gas limit in the while-loop",
+  "issueId": 110,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/110"
+}
