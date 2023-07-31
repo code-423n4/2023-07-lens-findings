@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Topmark",
+  "risk": "2",
+  "title": "Weak Conditional Statements which gives Room for Unauthorize Execution of unfollow() and _followWithWrappedToken() by an attacker",
+  "issueId": 113,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/113"
+}
