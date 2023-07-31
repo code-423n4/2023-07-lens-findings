@@ -81,7 +81,7 @@ private
 within a grouping, place the view and pure functions last
 
 
-
+ ##  [N-15] Inconsistent Solidity Versions
  
 ##  [S-01] You can explain the operation of critical functions in NatSpec with an infographic.
 
