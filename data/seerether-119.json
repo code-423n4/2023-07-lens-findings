@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Anyone can permanently disable the token guardian for their wallet by calling this one DANGER__disableTokenGuardian function ",
+  "issueId": 119,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/119"
+}
