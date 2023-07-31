@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "Precomputed `LENS_HUB_CACHED_POLYGON_DOMAIN_SEPARATOR` will become incorrect if Polygon hard forks",
+  "issueId": 139,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/139"
+}
