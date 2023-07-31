@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "Users cannot unfollow if they do not own the FollowNFT of the `followTokenId` used for their profile",
+  "issueId": 145,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/145"
+}
