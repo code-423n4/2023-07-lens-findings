@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "`LensBaseERC721.sol` does not implement `_safeMint()` and the case where `_safeMint()` should be used rather than `_mint()` wherever possible is missed by bot.",
+  "issueId": 134,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/134"
+}
