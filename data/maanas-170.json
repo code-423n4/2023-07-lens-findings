@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "maanas",
+  "risk": "2",
+  "title": "Migration of Profiles can fail due to existance of same handle",
+  "issueId": 170,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/170"
+}
