@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "MiloTruck",
+  "risk": "2",
+  "title": "`_getReceiver()` will revert for burnt profiles due to use of `ownerOf()`",
+  "issueId": 137,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/137"
+}
