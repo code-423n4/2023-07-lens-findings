@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "parsely",
+  "risk": "2",
+  "title": "rollbackLastUpgrade:  function Rollback address can be the same as current address breaking the rollback functionality",
+  "issueId": 135,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/135"
+}
