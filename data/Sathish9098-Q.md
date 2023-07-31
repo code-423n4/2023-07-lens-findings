@@ -225,7 +225,7 @@ Recommendation
 NatSpec comments should be increased in Contracts
 
 Recommendation  Code:
-```js
+```
  /**
      * @notice Sets approval for specific withdrawer addresses
      * @dev This function updates the amount of the withdrawApproval mapping value based on the given 3 argument values
@@ -233,6 +233,8 @@ Recommendation  Code:
      * @param token_ instance of ERC20
      * @param amount_ User amount
      * @param 
+
+```
 
 ## [L-26] Reduce the inheritance list
 
