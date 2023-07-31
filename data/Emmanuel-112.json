@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "Adversary can force any profile to follow a profile by sending followNFT to address that owns the profile and calling `LensV2Migration#batchMigrateFollows`",
+  "issueId": 112,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/112"
+}
