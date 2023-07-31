@@ -1,0 +1,8 @@
+{
+  "contest": 263,
+  "handle": "Emmanuel",
+  "risk": "2",
+  "title": "If follower follows by inputting an existing tokenId, he can be removed at anytime by the holder of that tokenId",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2023-07-lens-findings/issues/114"
+}
